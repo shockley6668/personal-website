@@ -76,7 +76,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     details: [
       { zh: '状态：待入学 (2026年秋季入学)', en: 'Incoming Student (Fall 2026 Intake)' }
     ],
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/University_of_Waterloo_seal.svg/200px-University_of_Waterloo_seal.svg.png',
+    logoUrl: './waterloo_logo.png',
   },
   {
     id: 'sztu',
