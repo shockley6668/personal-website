@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>404</title>
+    <link rel="Shortcut Icon" href="/class/template/images/logo-min.png" type="image/png"/>
+<script>
+    var root = "/";
+</script>
+<script type="module" src="/class/template/dist/assets/app-DD-e4u40.js"></script>
+<link rel="stylesheet" href="/class/template/dist/assets/app-Dg2NiN48.css"></head>
+
+<body>
+    <div class="layer-nav" id="layer-nav">
+	<div class="bgopacity">
+		<div class="navlist">
+			
+			<dl>
+				<dt><a href="/">深圳科创学院</a></dt>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/overview">关于我们</a></dt>
+				
+				<dd>
+ 						<a href="/overview">学院概况</a>
+ 						<span>/</span>
+						<a href="/vision-mission">学院文化</a>
+ 						<span>/</span>
+						<a href="/explore-innox">走进学院</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/startup-teams">在孵团队</a></dt>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/mentors">创业导师</a></dt>
+				
+				<dd>
+ 						<a href="/mentors#Founder">发起人</a>
+ 						<span>/</span>
+						<a href="/mentors#CoreTeam">科创导师</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/empowerment">赋能体系</a></dt>
+				
+				<dd>
+ 						<a href="/empowerment#CurriculumDesign">赋能体系</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/university-consortium">合作交流</a></dt>
+				
+				<dd>
+ 						<a href="/university-consortium">合作高校</a>
+ 						<span>/</span>
+						<a href="/entrepreneur-community">科技创业者俱乐部</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/innox-bootcamp">项目申请</a></dt>
+				
+				<dd>
+ 						<a href="/innox-bootcamp">科创训练营</a>
+ 						<span>/</span>
+						<a href="/fulltime-incubation">科技创业营(长期报名)</a>
+ 						<span>/</span>
+						<a href="/k12-bootcamp">K12训练营</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/latest">学院动态</a></dt>
+				
+				<dd>
+ 						<a href="/latest">最新消息</a>
+ 						<span>/</span>
+						<a href="/zhaobiaocaigou">招标采购</a>
+ 						<span>/</span>
+						<a href="/gongshigonggao">公示公告</a>
+				</dd>
+				
+			</dl>
+			
+			<dl>
+				<dt><a href="/contact">联系我们</a></dt>
+				
+				<dd>
+ 						<a href="/contact#contact">联系我们</a>
+ 						<span>/</span>
+						<a href="/contact#message">在线留言</a>
+ 						<span>/</span>
+						<a href="/ruzhixueyuan">入职学院</a>
+				</dd>
+				
+			</dl>
+			
+		</div>
+	</div>
+</div>
+<div class="navbar">
+	<div class="container navbar-warpper">
+		<div class="logo">
+			<a href="/">
+				<img src="/class/template/images/logow.png" alt="深圳科创学院" />
+				<img src="/class/template/images/logo.png" alt="深圳科创学院" />
+			</a>
+		</div>
+		<ul class="nav">
+
+			<li class="">
+				<a href="/overview" class="item">关于我们</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/overview">学院概况</a>
+					</dd>
+					<dd class="">
+						<a href="/vision-mission">学院文化</a>
+					</dd>
+					<dd class="">
+						<a href="/explore-innox">走进学院</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/startup-teams" class="item">在孵团队</a>
+				
+
+			</li>
+			<li class="">
+				<a href="/mentors" class="item">创业导师</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/mentors#Founder">发起人</a>
+					</dd>
+					<dd class="">
+						<a href="/mentors#CoreTeam">科创导师</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/empowerment" class="item">赋能体系</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/empowerment#CurriculumDesign">赋能体系</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/university-consortium" class="item">合作交流</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/university-consortium">合作高校</a>
+					</dd>
+					<dd class="">
+						<a href="/entrepreneur-community">科技创业者俱乐部</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/innox-bootcamp" class="item">项目申请</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/innox-bootcamp">科创训练营</a>
+					</dd>
+					<dd class="">
+						<a href="/fulltime-incubation">科技创业营(长期报名)</a>
+					</dd>
+					<dd class="">
+						<a href="/k12-bootcamp">K12训练营</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/latest" class="item">学院动态</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/latest">最新消息</a>
+					</dd>
+					<dd class="">
+						<a href="/zhaobiaocaigou">招标采购</a>
+					</dd>
+					<dd class="">
+						<a href="/gongshigonggao">公示公告</a>
+					</dd>
+				</dl>
+			</li>
+			<li class="">
+				<a href="/contact" class="item">联系我们</a>
+				
+				<dl>
+					
+					<dd class="">
+						<a href="/contact#contact">联系我们</a>
+					</dd>
+					<dd class="">
+						<a href="/contact#message">在线留言</a>
+					</dd>
+					<dd class="">
+						<a href="/ruzhixueyuan">入职学院</a>
+					</dd>
+				</dl>
+			</li>
+		</ul>
+
+		<div class="btns">
+			<div class="language">
+				<i class="i-app-lang"></i>
+				<span>CN</span>
+				<i class="i-app-down"></i>
+				<ul class="langs">					<li><a href="http://en.innoxsz.com" data-lang="EN">ENGLISH</a></li>					<li><a href="http://www.innoxsz.com" data-lang="CN">CHINESE</a></li>				</ul>
+			</div>
+			<div class="search">
+				<div class="search-btn">
+					<i class="i-app-search"></i>
+				</div>
+				<div class="searchbox">
+					<input type="text" id="keyword" placeholder="Search" />
+					<button id="search-btn-dosearch"><i class="i-app-search"></i></button>
+				</div>
+			</div>
+			<a class="btn-nav">
+				<span></span>
+			</a>
+		</div>
+	</div>
+</div>    <div class="nbanner">
+        <img src="/upload/20240428/0181337d6a39a3.png" alt="关于我们" />
+        <div class="text">
+            <div class="container">
+                <h2>关于我们</h2>
+            </div>
+        </div>
+    </div>
+    <div class="subnav">
+        <div class="container2">
+            <ul>
+                 <li><a href="/overview" class="">学院概况</a></li>
+                <li><a href="/vision-mission" class="">学院文化</a></li>
+                <li><a href="/explore-innox" class="">走进学院</a></li>
+            </ul>
+            <div class="location">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="notfound">
+            <div class="pic"><img src="/class/template/images/404.png" alt=""></div>
+            <div class="text">
+                未找到您访问的页面，<a href="/">点击此处进入首页</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="left">
+            <div class="footlogo">
+                <img src="/class/template/images/logow.png" alt="">
+            </div>
+            <div class="address">
+                地址: 广东省深圳市南山区创智云城2期C1栋            </div>
+            <ul class="fcontact">
+                <li>邮箱: <a href="mailto:wan.ch@innoxsz.edu.cn">wan.ch@innoxsz.edu.cn</a></li>
+                <li>电话: <a href="tel:0755-89933366">0755-89933366</a></li>
+            </ul>
+            <div class="ask">
+                <div class="pic"><img src="/upload/20240523/c726e3367a4258.jpg" alt="cindy"></div>
+                <h2>深圳科创学院官方客服Cindy </h2>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="footnav">
+
+                <dl>
+                    <dt><a href="/overview">关于我们</a></dt>
+                                        <dd><a href="/overview">学院概况</a></dd>
+                    <dd><a href="/vision-mission">学院文化</a></dd>
+                    <dd><a href="/explore-innox">走进学院</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="/startup-teams">在孵团队</a></dt>
+                                    </dl>
+                <dl>
+                    <dt><a href="/mentors">创业导师</a></dt>
+                                        <dd><a href="/mentors#Founder">发起人</a></dd>
+                    <dd><a href="/mentors#CoreTeam">科创导师</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="/empowerment">赋能体系</a></dt>
+                                        <dd><a href="/empowerment#CurriculumDesign">培养方案</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="/university-consortium">合作交流</a></dt>
+                                        <dd><a href="/university-consortium">合作高校</a></dd>
+                    <dd><a href="/entrepreneur-community">科技创业者俱乐部</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="/innox-bootcamp">项目申请</a></dt>
+                                        <dd><a href="/innox-bootcamp">科创训练营</a></dd>
+                    <dd><a href="/fulltime-incubation">科技创业营</a></dd>
+                    <dd><a href="/k12-bootcamp">K12训练营</a></dd>
+                </dl>
+
+
+            </div>
+            <div class="copy">
+                <div class="share">
+                    <h2>社交媒体</h2>
+                    <ul>
+                        
+                        <li>
+                            <div class="icon"><i class="i-app-gongzhong"></i></div>
+                            <div class="bigpic"><a href="javascript:" target="_blank"><img src="/upload/20240523/7be5d8c949c42f.jpg" /></a></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="i-app-bilibili"></i></div>
+                            <div class="bigpic"><a href="https://space.bilibili.com/175350105" target="_blank"><img src="/upload/20240523/f5ad5078a153c4.jpg" /></a></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="i-app-xiaohongshu"></i></div>
+                            <div class="bigpic"><a href="https://www.xiaohongshu.com/user/profile/656ff5f6000000002002dac1" target="_blank"><img src="/upload/20240523/39c607acd528b7.jpg" /></a></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="i-app-douyin"></i></div>
+                            <div class="bigpic"><a href="javascript:;" target="_blank"><img src="/upload/20240523/65d4d85f7223bd.jpg" /></a></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="i-app-weibo"></i></div>
+                            <div class="bigpic"><a href="http://weibo.cn/qr/userinfo?featurecode=profile_qrcode&uid=7601577515" target="_blank"><img src="/upload/20240525/dcfe0bc839f2dd.png" /></a></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>&copy; Copyright 2026</p>
+                    <p><a href="https://beian.miit.gov.cn/" target="_blank">备案号：粤ICP备2021082889号</a></p>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<div class="gotop">
+    <i class="i-app-up"></i>
+    <span>Top</span>
+</div></body>
+
+</html>

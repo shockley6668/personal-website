@@ -1,0 +1,6 @@
+{
+  "name": "Shockley",
+  "description": "一个展示个人信息、项目和技能的现代化个人主页，使用 React、TypeScript 和 Tailwind CSS 构建。",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
