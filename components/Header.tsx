@@ -75,7 +75,6 @@ const Header: React.FC = () => {
           <LanguageSwitcher />
         </nav>
         <div className="md:hidden flex items-center">
-          <LanguageSwitcher />
           <button
             onClick={toggleMobileMenu}
             className={`ml-3 transition-colors duration-300 ${isScrolled ? 'text-slate-700' : 'text-white'} focus:outline-none`}
@@ -89,23 +88,30 @@ const Header: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden bg-white shadow-lg absolute w-full top-full" // Position below the header bar
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
+            className="md:hidden bg-white/95 backdrop-blur-xl shadow-2xl absolute w-full top-full border-t border-slate-100 overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <nav className="flex flex-col items-center py-4 space-y-3">
-              {NAV_LINKS_DATA.map((link: NavLink) => (
-                <a
+            <nav className="flex flex-col items-stretch py-6 px-4 space-y-1">
+              {NAV_LINKS_DATA.map((link: NavLink, idx: number) => (
+                <motion.a
                   key={getText(link.name, language)}
                   href={link.href}
-                  className="text-slate-700 hover:text-sky-500 transition-colors py-1"
-                  onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+                  className="text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-all py-3.5 px-6 rounded-xl font-semibold text-lg flex items-center justify-between group"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: idx * 0.05 }}
                 >
-                  {getText(link.name, language)}
-                </a>
+                  <span>{getText(link.name, language)}</span>
+                  <i className="fas fa-chevron-right text-slate-300 group-hover:text-sky-400 transition-colors text-sm"></i>
+                </motion.a>
               ))}
+              <div className="pt-4 mt-4 border-t border-slate-100 flex justify-center">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </motion.div>
         )}
