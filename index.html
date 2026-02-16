@@ -1,98 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shukun Huang - Personal Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-      body.loaded {
-        opacity: 1;
-      }
-      /* Basic scrollbar styling for the whole page */
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px; /* Also for horizontal scrollbars */
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shukun Huang | Robotics Engineer & AI Enthusiast</title>
+  <meta name="description"
+    content="Portfolio of Shukun Huang, a Robotics Engineer specializing in embedded systems, AI, and autonomous robots. Explore projects, research, and technical expertise." />
+  <meta name="keywords"
+    content="Shukun Huang, Robotics Engineer, Embedded Systems, AI, RoboMaster, ICRA, Autonomous Robots, Portfolio" />
+  <meta name="author" content="Shukun Huang" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shukunhuang.tech/" />
+  <meta property="og:title" content="Shukun Huang | Robotics Engineer" />
+  <meta property="og:description"
+    content="Showcasing innovative robotics projects, embedded system development, and AI research." />
+  <meta property="og:image" content="https://shukunhuang.tech/profile_image_mt_fuji.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://shukunhuang.tech/" />
+  <meta property="twitter:title" content="Shukun Huang | Robotics Engineer" />
+  <meta property="twitter:description" content="Showcasing innovative robotics projects and AI research." />
+  <meta property="twitter:image" content="https://shukunhuang.tech/profile_image_mt_fuji.jpg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    /* Basic scrollbar styling for the whole page */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      /* Also for horizontal scrollbars */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Auto-scrolling gallery styles */
+    @keyframes scrollGallery {
+      0% {
+        transform: translateX(0);
       }
 
-      /* Auto-scrolling gallery styles */
-      @keyframes scrollGallery {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%); /* Scroll one full set of original images */
-        }
+      100% {
+        transform: translateX(-50%);
+        /* Scroll one full set of original images */
       }
+    }
 
-      .gallery-autoscroll-container {
-        overflow-x: hidden; /* Hide scrollbar by default, overridden on hover */
-        position: relative;
-        width: 100%;
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        perspective: 1000px; /* For 3D effect of child items */
-        
-        /* Scrollbar styling - default hidden for this container */
-        scrollbar-width: thin; /* Firefox */
-        scrollbar-color: transparent transparent; /* Firefox: thumb and track initially transparent */
-      }
-      
-      /* Hide scrollbar by default for Webkit browsers */
-      .gallery-autoscroll-container::-webkit-scrollbar {
-        height: 8px;
-        background-color: transparent;
-      }
-      .gallery-autoscroll-container::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 4px;
-      }
+    .gallery-autoscroll-container {
+      overflow-x: hidden;
+      /* Hide scrollbar by default, overridden on hover */
+      position: relative;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      perspective: 1000px;
+      /* For 3D effect of child items */
 
-      /* Show scrollbar on hover for the gallery container */
-      .gallery-autoscroll-container:hover {
-        overflow-x: auto; /* Enable manual scrolling */
-        scrollbar-color: #a0aec0 #e2e8f0; /* Firefox: thumb (gray-500), track (gray-300) */
-      }
+      /* Scrollbar styling - default hidden for this container */
+      scrollbar-width: thin;
+      /* Firefox */
+      scrollbar-color: transparent transparent;
+      /* Firefox: thumb and track initially transparent */
+    }
 
-      .gallery-autoscroll-container:hover::-webkit-scrollbar-track {
-        background: #e2e8f0; /* Tailwind gray-300 for track */
-      }
-      .gallery-autoscroll-container:hover::-webkit-scrollbar-thumb {
-        background: #a0aec0; /* Tailwind gray-500 for thumb */
-      }
-      .gallery-autoscroll-container:hover::-webkit-scrollbar-thumb:hover {
-        background: #718096; /* Tailwind gray-600 for thumb hover */
-      }
+    /* Hide scrollbar by default for Webkit browsers */
+    .gallery-autoscroll-container::-webkit-scrollbar {
+      height: 8px;
+      background-color: transparent;
+    }
 
-      .gallery-scrolling-track {
-        display: flex;
-        transform-style: preserve-3d; /* Essential for children's 3D transforms within perspective */
-        /* animation-duration is set dynamically in About.tsx */
-        animation: scrollGallery 60s linear infinite; /* Default/placeholder duration */
-      }
+    .gallery-autoscroll-container::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border-radius: 4px;
+    }
 
-      .gallery-autoscroll-container:hover .gallery-scrolling-track {
-        animation-play-state: paused;
-      }
-    </style>
+    /* Show scrollbar on hover for the gallery container */
+    .gallery-autoscroll-container:hover {
+      overflow-x: auto;
+      /* Enable manual scrolling */
+      scrollbar-color: #a0aec0 #e2e8f0;
+      /* Firefox: thumb (gray-500), track (gray-300) */
+    }
+
+    .gallery-autoscroll-container:hover::-webkit-scrollbar-track {
+      background: #e2e8f0;
+      /* Tailwind gray-300 for track */
+    }
+
+    .gallery-autoscroll-container:hover::-webkit-scrollbar-thumb {
+      background: #a0aec0;
+      /* Tailwind gray-500 for thumb */
+    }
+
+    .gallery-autoscroll-container:hover::-webkit-scrollbar-thumb:hover {
+      background: #718096;
+      /* Tailwind gray-600 for thumb hover */
+    }
+
+    .gallery-scrolling-track {
+      display: flex;
+      transform-style: preserve-3d;
+      /* Essential for children's 3D transforms within perspective */
+      /* animation-duration is set dynamically in About.tsx */
+      animation: scrollGallery 60s linear infinite;
+      /* Default/placeholder duration */
+    }
+
+    .gallery-autoscroll-container:hover .gallery-scrolling-track {
+      animation-play-state: paused;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -103,20 +149,22 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-slate-100 text-slate-800">
-    <!-- 
+
+<body class="bg-slate-100 text-slate-800">
+  <!-- 
       Note: Please add your profile picture as `profile_image_mt_fuji.jpg` to the root directory 
       (or a `public` directory if your setup uses one, and adjust the path in constants.tsx accordingly).
     -->
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-    <script>
-      // Simple fade-in for the body once content is likely loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        document.body.classList.add('loaded');
-      });
-    </script>
-  </body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+  <script>
+    // Simple fade-in for the body once content is likely loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+
 </html>
