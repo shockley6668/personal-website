@@ -45,9 +45,9 @@ const Hero: React.FC = () => {
           className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover mb-6 border-4 border-sky-400 shadow-xl mx-auto"
           variants={heroItemVariants}
         />
-        <motion.h1 
+        <motion.h1
           id="hero-title"
-          className="text-4xl md:text-5xl font-bold mb-3" 
+          className="text-4xl md:text-5xl font-bold mb-3"
           variants={heroItemVariants}
         >
           {getText(PROFILE_DATA.heroTitle, language)}
@@ -55,13 +55,26 @@ const Hero: React.FC = () => {
         <motion.p className="text-lg md:text-xl text-sky-200 mb-8 max-w-2xl mx-auto" variants={heroItemVariants}>
           {getText(PROFILE_DATA.heroSubtitle, language)}
         </motion.p>
-        <motion.a
-          href="#about" // This will trigger smooth scroll to the About section
-          className="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block"
-          variants={heroItemVariants}
-        >
-          {getText(PROFILE_DATA.heroButton, language)} <i className="fas fa-arrow-down ml-2"></i>
-        </motion.a>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <motion.a
+            href="#about" // This will trigger smooth scroll to the About section
+            className="bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block w-full sm:w-auto"
+            variants={heroItemVariants}
+          >
+            {getText(PROFILE_DATA.heroButton, language)} <i className="fas fa-arrow-down ml-2"></i>
+          </motion.a>
+
+          {PROFILE_DATA.downloadResume && (
+            <motion.a
+              href="./resume.pdf"
+              download="Shukun_Huang_Resume.pdf"
+              className="bg-transparent border-2 border-sky-400 hover:bg-sky-400/10 text-sky-400 font-semibold py-3 px-8 rounded-full text-lg transition-transform duration-300 ease-in-out transform hover:scale-105 shadow-lg inline-block w-full sm:w-auto"
+              variants={heroItemVariants}
+            >
+              {getText(PROFILE_DATA.downloadResume, language)} <i className="fas fa-download ml-2"></i>
+            </motion.a>
+          )}
+        </div>
       </motion.div>
     </section>
   );

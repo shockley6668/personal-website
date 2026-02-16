@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Adjust threshold if needed, e.g., to trigger when hero is mostly out of view
-      setIsScrolled(window.scrollY > window.innerHeight * 0.1); 
+      setIsScrolled(window.scrollY > window.innerHeight * 0.1);
     };
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial check in case page loads scrolled
@@ -25,10 +25,10 @@ const Header: React.FC = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  
+
   const navLinkVariants = {
     hidden: { opacity: 0, y: -10 },
-    visible: (i:number) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -41,20 +41,20 @@ const Header: React.FC = () => {
   // Hero content variants are removed from here
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-                 ${isScrolled 
-                    ? 'bg-white/80 backdrop-blur-md shadow-lg py-3' 
-                    : 'bg-transparent py-5'
-                 }`}
+                 ${isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-lg py-3'
+          : 'bg-transparent py-5'
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-        <motion.a 
-          href="#" 
+        <motion.a
+          href="#"
           className={`text-2xl sm:text-3xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-sky-600' : 'text-white'}`}
-          initial={{opacity:0, x: -20}}
-          animate={{opacity:1, x: 0}}
-          transition={{duration: 0.5, delay: 0.1}} // Adjusted delay
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }} // Adjusted delay
         >
           {getText(PROFILE_DATA.name, language)}
         </motion.a>
@@ -79,16 +79,16 @@ const Header: React.FC = () => {
           <button
             onClick={toggleMobileMenu}
             className={`ml-3 transition-colors duration-300 ${isScrolled ? 'text-slate-700' : 'text-white'} focus:outline-none`}
-            aria-label={getText({zh: "切换菜单", en: "Toggle menu"}, language)}
+            aria-label={getText({ zh: "切换菜单", en: "Toggle menu" }, language)}
           >
             <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
           </button>
         </div>
       </div>
-      
+
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="md:hidden bg-white shadow-lg absolute w-full top-full" // Position below the header bar
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
       </AnimatePresence>
 
       {/* Removed CyberpunkParkourAnimation, Hero Content, and h-screen div */}
-    </header>
+    </header >
   );
 };
 

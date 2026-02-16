@@ -19,6 +19,7 @@ export interface ProfileInfo {
   heroTitle: BilingualString;
   heroSubtitle: BilingualString;
   heroButton: BilingualString;
+  downloadResume?: BilingualString;
 }
 
 export interface AboutContent {

@@ -20,6 +20,7 @@ export const PROFILE_DATA: ProfileInfo = {
   heroTitle: { zh: '你好，我是黄树坤', en: 'Hello, I\'m Shukun Huang' },
   heroSubtitle: { zh: '专注于机器人技术、嵌入式系统和人工智能的工程师，热衷于将创新想法转化为实际解决方案。', en: 'A robotics engineer focused on embedded systems and AI, passionate about turning innovative ideas into real-world solutions.' },
   heroButton: { zh: '了解更多', en: 'Learn More' },
+  downloadResume: { zh: '下载简历', en: 'Download Resume' },
 };
 
 export const NAV_LINKS_DATA: NavLink[] = [
@@ -307,11 +308,6 @@ export const AWARDS_DATA: AwardEntry[] = [
     id: 'award5',
     name: { zh: 'ICRA RoboMaster Sim2Real 挑战赛二等奖', en: 'ICRA RoboMaster Sim2Real Challenge Second Prize' },
     certificateImageUrl: './prize5.jpg'
-  },
-  {
-    id: 'award6',
-    name: { zh: 'ICRA Sim2Real 挑战赛二等奖', en: 'IEEE ICRA 2025 Sim2Real Challenge Second Prize' },
-    certificateImageUrl: './prize6.jpg'
   },
 ];
 
