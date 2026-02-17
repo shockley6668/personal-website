@@ -21,13 +21,13 @@ const EducationCard: React.FC<{ entry: EducationEntry, index: number }> = ({ ent
   return (
     <ClickRippleEffect rippleColor={rippleColor} duration={rippleDuration}>
       <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="bg-white p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-slate-100"
         variants={cardVariants}
       >
-        <div className="flex items-start gap-5">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
           {/* Logo */}
           {entry.logoUrl && (
-            <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center p-2 shadow-sm">
+            <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-3 shadow-sm group-hover:scale-105 transition-transform">
               <img
                 src={entry.logoUrl}
                 alt={getText(entry.institution, language)}
@@ -37,32 +37,47 @@ const EducationCard: React.FC<{ entry: EducationEntry, index: number }> = ({ ent
             </div>
           )}
           {/* Content */}
-          <div className="flex-grow min-w-0">
-            <div className="flex justify-between items-start mb-1">
-              <div>
-                <h3 className="text-xl font-semibold text-sky-700">{getText(entry.institution, language)}</h3>
-                <p className="text-md text-sky-600">{getText(entry.degree, language)} - {getText(entry.major, language)}</p>
+          <div className="flex-grow min-w-0 text-center sm:text-left w-full">
+            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mb-2 gap-1">
+              <div className="w-full">
+                <h3 className="text-xl md:text-2xl font-bold text-sky-800 leading-tight">{getText(entry.institution, language)}</h3>
+                <p className="text-base font-semibold text-sky-600 mt-0.5">{getText(entry.degree, language)} <span className="hidden sm:inline">|</span> <span className="sm:hidden"><br /></span> {getText(entry.major, language)}</p>
               </div>
-              <span className="text-sm text-slate-500 whitespace-nowrap ml-4">{getText(entry.period, language)}</span>
+              <div className="bg-sky-50 px-3 py-1 rounded-full text-xs font-bold text-sky-600 whitespace-nowrap mt-2 sm:mt-0">
+                <i className="far fa-calendar-alt mr-1.5 opacity-70"></i>{getText(entry.period, language)}
+              </div>
             </div>
-            {entry.gpa && <p className="text-sm text-slate-600 mb-1">{getText(entry.gpa, language)}</p>}
+            {entry.gpa && (
+              <div className="inline-flex items-center gap-2 bg-slate-50 px-3 py-1 rounded-md text-xs font-medium text-slate-600 mb-3">
+                <i className="fas fa-chart-line text-sky-400"></i>
+                {getText(entry.gpa, language)}
+              </div>
+            )}
             {entry.details && entry.details.length > 0 && (
-              <div className="mt-1 mb-1">
-                <ul className="list-disc list-inside text-sm text-slate-600 space-y-0.5">
+              <div className="mt-2 mb-4">
+                <ul className="text-sm text-slate-600 space-y-1.5 list-none">
                   {entry.details.map((detail, idx) => (
-                    <li key={idx}>{getText(detail, language)}</li>
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <i className="fas fa-check-circle text-sky-400 text-[10px] mt-1 flex-shrink-0"></i>
+                      <span className="leading-relaxed">{getText(detail, language)}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
             )}
             {entry.courses && entry.courses.length > 0 && (
-              <div>
-                <h4 className="text-sm font-medium text-slate-700 mt-2 mb-1">{getText({ zh: '核心课程:', en: 'Core Courses:' }, language)}</h4>
-                <ul className="list-disc list-inside text-sm text-slate-600 space-y-0.5">
+              <div className="mt-4 pt-4 border-t border-slate-50">
+                <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-3 flex items-center justify-center sm:justify-start gap-2">
+                  <i className="fas fa-graduation-cap"></i>
+                  {getText({ zh: '核心课程', en: 'Core Courses' }, language)}
+                </h4>
+                <div className="flex flex-wrap justify-center sm:justify-start gap-2">
                   {entry.courses.map((course, idx) => (
-                    <li key={idx}>{getText(course, language)}</li>
+                    <span key={idx} className="bg-slate-100/80 text-slate-600 text-[10px] font-bold px-2.5 py-1 rounded-lg border border-slate-200/50">
+                      {getText(course, language)}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
           </div>

@@ -21,24 +21,38 @@ const InternshipCard: React.FC<{ entry: InternshipEntry, index: number }> = ({ e
   return (
     <ClickRippleEffect rippleColor={rippleColor} duration={rippleDuration}>
       <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="bg-white p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-slate-100"
         variants={cardVariants}
       >
-        <div className="flex flex-col sm:flex-row justify-between items-start mb-3">
-          <div className="mb-2 sm:mb-0 flex-grow min-w-0">
-            <h3 className="text-xl font-semibold text-sky-700">{getText(entry.role, language)}</h3>
-            <p className="text-md text-slate-600 break-all indent-0">
-              {getText(entry.company, language)}
-              {entry.department && <span className="text-sm text-slate-500"> - {getText(entry.department, language)}</span>}
-            </p>
+        <div className="flex flex-col sm:flex-row justify-between items-start mb-4 gap-2">
+          <div className="flex-grow min-w-0">
+            <h3 className="text-xl md:text-2xl font-bold text-sky-800 leading-tight">{getText(entry.role, language)}</h3>
+            <div className="flex flex-wrap items-center gap-x-2 mt-1">
+              <p className="text-base font-medium text-slate-700">
+                {getText(entry.company, language)}
+              </p>
+              {entry.department && (
+                <span className="text-sm text-slate-400 font-normal">
+                  / {getText(entry.department, language)}
+                </span>
+              )}
+            </div>
           </div>
-          <span className="text-sm text-slate-500 whitespace-nowrap sm:ml-4 sm:mt-0.5">{getText(entry.period, language)}</span>
+          <div className="bg-sky-50 px-3 py-1 rounded-full text-xs font-bold text-sky-600 whitespace-nowrap">
+            <i className="far fa-calendar-alt mr-1.5 opacity-70"></i>{getText(entry.period, language)}
+          </div>
         </div>
-        <div>
-          <h4 className="text-sm font-medium text-slate-700 mb-1">{getText({ zh: '主要职责:', en: 'Responsibilities:' }, language)}</h4>
-          <ul className="list-disc list-inside text-sm text-slate-600 space-y-1">
+        <div className="pt-3 border-t border-slate-50">
+          <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-2 flex items-center gap-2">
+            <i className="fas fa-tasks text-[10px]"></i>
+            {getText({ zh: '项目详情与职责', en: 'Responsibilities & Projects' }, language)}
+          </h4>
+          <ul className="text-sm text-slate-600 space-y-2.5">
             {entry.responsibilities.map((resp, idx) => (
-              <li key={idx}>{getText(resp, language)}</li>
+              <li key={idx} className="flex items-start gap-2.5">
+                <i className="fas fa-arrow-right text-sky-300 text-[10px] mt-1.5 flex-shrink-0"></i>
+                <span className="leading-relaxed">{getText(resp, language)}</span>
+              </li>
             ))}
           </ul>
         </div>

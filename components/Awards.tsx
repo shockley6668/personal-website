@@ -17,16 +17,17 @@ interface AwardItemProps {
 const AwardItem: React.FC<AwardItemProps> = ({ award, isSelected, onHover, language }) => {
   const rippleColor = "rgba(0, 120, 255, 0.08)";
   const rippleDuration = 0.7;
-  
+
   return (
     <ClickRippleEffect rippleColor={rippleColor} duration={rippleDuration}>
       <motion.li
-        className={`flex items-center space-x-3 p-3.5 rounded-lg shadow-md cursor-pointer transition-all duration-300 ease-in-out
-                    ${isSelected 
-                      ? 'bg-sky-100 ring-2 ring-sky-500 scale-105 shadow-xl' 
-                      : 'bg-white hover:shadow-lg hover:bg-slate-50'
-                    }`}
-        onMouseEnter={onHover}
+        className={`flex items-center space-x-3 p-3 sm:p-4 rounded-xl shadow-md cursor-pointer transition-all duration-300 ease-in-out border
+                    ${isSelected
+            ? 'bg-sky-100 border-sky-400 ring-1 ring-sky-300 scale-[1.02] shadow-lg'
+            : 'bg-white border-slate-100 hover:shadow-lg hover:bg-slate-50'
+          }`}
+        onMouseEnter={() => window.innerWidth > 768 && onHover()}
+        onClick={() => window.innerWidth <= 768 && onHover()}
         onFocus={onHover}
         tabIndex={0}
         role="button"
@@ -34,10 +35,13 @@ const AwardItem: React.FC<AwardItemProps> = ({ award, isSelected, onHover, langu
         aria-label={getText(award.name, language)}
         layout
       >
-        <i className={`fas fa-award text-xl ${isSelected ? 'text-yellow-500' : 'text-yellow-400'}`}></i>
-        <span className={`font-medium ${isSelected ? 'text-sky-700' : 'text-slate-700'}`}>
+        <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isSelected ? 'bg-sky-500' : 'bg-slate-100'}`}>
+          <i className={`fas fa-award text-lg ${isSelected ? 'text-white' : 'text-yellow-500'}`}></i>
+        </div>
+        <span className={`font-bold text-sm sm:text-base flex-grow ${isSelected ? 'text-sky-800' : 'text-slate-700'}`}>
           {getText(award.name, language)}
         </span>
+        {isSelected && <i className="fas fa-chevron-right text-sky-400 sm:hidden"></i>}
       </motion.li>
     </ClickRippleEffect>
   );
@@ -61,7 +65,7 @@ const Awards: React.FC = () => {
 
   const currentAward = AWARDS_DATA.find(award => award.id === selectedAwardId);
   const certificateUrl = currentAward?.certificateImageUrl;
-  const certificateAltText = currentAward 
+  const certificateAltText = currentAward
     ? getText(currentAward.certificateDescription || currentAward.name, language)
     : getText({ zh: "获奖证书", en: "Award Certificate" }, language);
 
@@ -73,7 +77,7 @@ const Awards: React.FC = () => {
   return (
     <section id="awards" className="py-16 md:py-24 bg-slate-100 overflow-hidden"> {/* Removed rounded-lg if not intrinsic */}
       <div className="container mx-auto px-6">
-        <motion.h2 
+        <motion.h2
           className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 text-slate-800"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,18 +86,18 @@ const Awards: React.FC = () => {
         >
           <span className="border-b-4 border-sky-500 pb-2">{getText({ zh: '荣誉奖项', en: 'Awards & Honors' }, language)}</span>
         </motion.h2>
-        
-        <motion.div 
+
+        <motion.div
           className="flex flex-col md:flex-row gap-8 lg:gap-12"
-          variants={sectionContentVariants} 
+          variants={sectionContentVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
           <div className="md:w-1/2 lg:w-5/12">
-            <motion.ul 
+            <motion.ul
               className="space-y-4"
-              initial={{ opacity: 0 }} 
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ staggerChildren: 0.07, delayChildren: 0.2 }}
             >
@@ -110,7 +114,7 @@ const Awards: React.FC = () => {
           </div>
 
           <div className="md:w-1/2 lg:w-7/12 mt-8 md:mt-0 md:sticky md:top-28 self-start">
-             <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait">
               {certificateUrl ? (
                 <motion.div
                   key={certificateUrl}
@@ -137,13 +141,13 @@ const Awards: React.FC = () => {
                 >
                   <i className="fas fa-certificate text-5xl text-slate-400 mb-4"></i>
                   <p className="text-slate-600 font-medium">
-                    {currentAward 
-                      ? getText({zh: "此奖项暂无证书预览", en: "No certificate preview for this award"}, language)
-                      : getText({zh: "请选择一个奖项查看证书", en: "Select an award to view its certificate"}, language)
+                    {currentAward
+                      ? getText({ zh: "此奖项暂无证书预览", en: "No certificate preview for this award" }, language)
+                      : getText({ zh: "请选择一个奖项查看证书", en: "Select an award to view its certificate" }, language)
                     }
                   </p>
                   <p className="text-sm text-slate-500 mt-1">
-                     {getText({zh:"将鼠标悬停或点击左侧奖项列表", en:"Hover or click an item in the list on the left"}, language)}
+                    {getText({ zh: "将鼠标悬停或点击左侧奖项列表", en: "Hover or click an item in the list on the left" }, language)}
                   </p>
                 </motion.div>
               )}
