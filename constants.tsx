@@ -36,7 +36,7 @@ export const NAV_LINKS_DATA: NavLink[] = [
 
 export const ABOUT_DATA: AboutContent = {
   title: { zh: '关于我', en: 'About Me' },
-  imageUrl: './profile_image_mt_fuji.jpg', // Corrected path relative to index.html
+  imageUrl: './profile_image.png', // Updated to the user-provided profile image
   paragraphs: [
     {
       zh: '从高中期间参与VEX、RoboMaster夏令营等机器人比赛起，就开始对机器人技术充满热情。在大学期间，通过参与各类机器人竞赛、电子设计比赛以及项目，深化了对机器人控制、嵌入式开发及深度学习等核心技术的理解与实践。',
@@ -71,7 +71,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     id: 'waterloo',
     institution: { zh: '滑铁卢大学', en: 'University of Waterloo' },
     degree: { zh: '硕士', en: 'Master\'s Degree' },
-    major: { zh: '系统设计工程（Systems Design Engineering）', en: 'Systems Design Engineering' },
+    major: { zh: '电子与计算机工程 (ECE)', en: 'Electrical and Computer Engineering (ECE)' },
     period: { zh: '2026.09 - 2028.01', en: 'Sep 2026 - Jan 2028' },
     details: [
       { zh: '状态：待入学 (2026年秋季入学)', en: 'Incoming Student (Fall 2026 Intake)' }

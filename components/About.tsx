@@ -66,20 +66,20 @@ const About: React.FC = () => {
         </motion.h2>
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-16">
           <motion.div
-            className="md:w-1/3 flex justify-center"
+            className="md:w-1/6 flex justify-center"
             variants={imageVariants}
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-sky-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-sky-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
               <img
                 src={ABOUT_DATA.imageUrl}
                 alt={getText(ABOUT_DATA.title, language)}
-                className="relative rounded-full w-56 h-56 xs:w-64 xs:h-64 md:w-80 md:h-80 object-cover shadow-2xl border-4 border-white"
+                className="relative rounded-3xl w-48 h-60 xs:w-56 xs:h-72 md:w-full md:h-auto object-cover shadow-2xl border-4 border-white transform transition-transform duration-500 group-hover:scale-[1.02]"
               />
             </div>
           </motion.div>
           <motion.div
-            className="md:w-2/3 text-base sm:text-lg text-slate-700 space-y-4 sm:space-y-6 text-center md:text-left"
+            className="md:w-3/4 text-base sm:text-lg text-slate-700 space-y-4 sm:space-y-6 text-center md:text-left"
             variants={textContentVariants}
           >
             {ABOUT_DATA.paragraphs.map((p, index) => (

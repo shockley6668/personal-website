@@ -48,17 +48,16 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/20 to-slate-900/80 pointer-events-none" />
 
       <div className="container mx-auto z-10 relative">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
-
-          {/* LEFT COLUMN: Text Content */}
+        <div className="flex flex-col items-center justify-center text-center">
+          {/* Main Text Content */}
           <motion.div
-            className="w-full md:w-1/2 text-center md:text-left pt-10 md:pt-0"
+            className="w-full max-w-5xl relative z-20 px-4"
             variants={heroContentVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.h2
-              className="text-2xl md:text-3xl font-bold text-sky-400 mb-2 tracking-wide uppercase"
+              className="text-xl md:text-2xl font-bold text-sky-400 mb-2 tracking-wide uppercase"
               variants={fadeInUp}
             >
               {getText({ zh: '你好，我是', en: "Hi I'm" }, language)}
@@ -66,7 +65,7 @@ const Hero: React.FC = () => {
 
             <motion.h1
               id="hero-title"
-              className="text-5xl xs:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none"
+              className="text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none"
               variants={fadeInUp}
             >
               <span className="relative inline-block">
@@ -76,14 +75,14 @@ const Hero: React.FC = () => {
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-2xl text-slate-300 font-medium mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed"
+              className="text-base md:text-xl text-slate-300 font-medium mb-10 max-w-2xl mx-auto leading-relaxed"
               variants={fadeInUp}
             >
               {getText(PROFILE_DATA.title, language)}
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-center md:justify-start justify-center gap-5"
+              className="flex flex-col sm:flex-row items-center justify-center gap-5"
               variants={fadeInUp}
             >
               {PROFILE_DATA.downloadResume && (
@@ -106,102 +105,82 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT COLUMN: Image & Graphics */}
-          <motion.div
-            className="w-full md:w-1/2 relative flex justify-center items-center mt-8 md:mt-0"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {/* Background Blob/Shape */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] md:w-[500px] md:h-[500px] bg-gradient-to-tr from-sky-600 via-indigo-600 to-purple-600 rounded-[3rem] md:rounded-[4rem] rotate-[-6deg] opacity-80 blur-0 shadow-2xl z-0 animate-blob"></div>
+          {/* Background & Floating Badges distributed around center */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            {/* Background Blob/Shape centered */}
+            <div className="absolute w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-gradient-to-tr from-sky-600/10 via-indigo-600/10 to-purple-600/10 rounded-full blur-[120px] z-0 animate-pulse"></div>
 
-            {/* Cutout Image with Bottom Fade Mask & Rim Light Effect */}
-            <div className="relative z-10 w-auto translate-x-20 md:translate-x-32">
-              <img
-                src="./hero-cutout.png"
-                alt={getText(PROFILE_DATA.name, language)}
-                className="w-auto h-[320px] xs:h-[380px] md:h-[650px] object-cover drop-shadow-[0_0_15px_rgba(14,165,233,0.3)] hover:drop-shadow-[0_0_25px_rgba(14,165,233,0.5)] hover:scale-[1.02] transition-all duration-500"
-                style={{
-                  filter: 'drop-shadow(0 0 2px rgba(14,165,233,0.5)) drop-shadow(0 0 10px rgba(14,165,233,0.3)) contrast(1.1) brightness(1.05)',
-                  WebkitFilter: 'drop-shadow(0 0 2px rgba(14,165,233,0.5)) drop-shadow(0 0 10px rgba(14,165,233,0.3)) contrast(1.1) brightness(1.05)'
-                }}
-              />
-              {/* Gradient Mask to hide bottom cut line */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent pointer-events-none"></div>
+            <div className="relative w-full h-full">
+              {/* Badge 1: Experience - Top Left */}
+              <motion.div
+                className="absolute top-[5%] left-[2%] md:top-[12%] md:left-[5%] z-20 bg-white/90 backdrop-blur-sm p-2 md:p-3 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-2 md:gap-3 pointer-events-auto scale-75 md:scale-100 origin-top-left"
+                custom={0}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <div className="bg-sky-100 text-sky-600 w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-2xl">
+                  <i className="fas fa-code"></i>
+                </div>
+                <div className="text-left">
+                  <p className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider">{getText({ zh: '经验', en: 'Experience' }, language)}</p>
+                  <p className="text-slate-800 font-black text-xs md:text-lg whitespace-nowrap">
+                    {getText({ zh: '嵌入式 & AI', en: 'Embedded & AI' }, language)}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Badge 2: Tech Stack Icon (Python) - Bottom Right */}
+              <motion.div
+                className="absolute bottom-[2%] right-[2%] md:bottom-[10%] md:right-[5%] z-20 bg-white rounded-xl md:rounded-2xl p-2 md:p-4 shadow-lg border border-slate-100 pointer-events-auto scale-75 md:scale-100 origin-bottom-right"
+                custom={1}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <i className="fab fa-python text-3xl md:text-5xl text-yellow-500"></i>
+              </motion.div>
+
+              {/* Badge 3: ROS2 - Middle Right Far */}
+              <motion.div
+                className="absolute top-[50%] right-[0%] md:right-[2%] z-20 bg-slate-900 text-white px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl shadow-xl border border-slate-700 flex items-center gap-2 pointer-events-auto scale-75 md:scale-100 origin-right"
+                custom={2}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <i className="fas fa-robot text-sky-400 text-base md:text-xl"></i>
+                <span className="font-bold text-xs md:text-base">ROS 2</span>
+              </motion.div>
+
+              {/* Badge 4: Github - Top Right */}
+              <motion.div
+                className="absolute top-[5%] right-[2%] md:top-[12%] md:right-[5%] z-20 bg-white p-2 md:p-4 rounded-xl md:rounded-2xl shadow-lg pointer-events-auto scale-75 md:scale-100 origin-top-right"
+                custom={1.5}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <i className="fab fa-github text-3xl md:text-5xl text-slate-800"></i>
+              </motion.div>
+
+              {/* Badge 5: C++ - Bottom Left */}
+              <motion.div
+                className="absolute bottom-[5%] left-[2%] md:bottom-[15%] md:left-[5%] z-10 bg-[#00599C] p-2 md:p-3 rounded-lg md:rounded-xl shadow-lg border border-blue-400 pointer-events-auto scale-75 md:scale-100 origin-bottom-left"
+                custom={2.5}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <span className="font-bold text-white text-base md:text-xl">C++</span>
+              </motion.div>
+
+              {/* Badge 6: Linux - Middle Left Far */}
+              <motion.div
+                className="absolute top-[40%] left-[0%] md:left-[2%] z-10 bg-slate-800 p-2 md:p-3 rounded-full shadow-lg border border-slate-600 pointer-events-auto scale-75 md:scale-100 origin-left"
+                custom={3}
+                variants={floatingBadgeVariants}
+                animate="animate"
+              >
+                <i className="fab fa-linux text-2xl md:text-4xl text-white"></i>
+              </motion.div>
             </div>
-
-            {/* Floating Badges - Optimized for Mobile */}
-            {/* Badge 1: Experience */}
-            <motion.div
-              className="absolute bottom-4 -left-2 md:bottom-20 md:-left-10 z-20 bg-white/95 backdrop-blur-sm p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl border border-white/50 flex items-center gap-2 md:gap-3 max-w-[140px] md:max-w-xs scale-90 md:scale-100 origin-bottom-left"
-              custom={0}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <div className="bg-sky-100 text-sky-600 w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center text-base md:text-2xl">
-                <i className="fas fa-code"></i>
-              </div>
-              <div className="text-left">
-                <p className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-wider">{getText({ zh: '经验', en: 'Experience' }, language)}</p>
-                <p className="text-slate-800 font-black text-xs md:text-lg whitespace-nowrap">
-                  {getText({ zh: '嵌入式 & AI', en: 'Embedded & AI' }, language)}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Badge 2: Tech Stack Icon (Python) */}
-            <motion.div
-              className="absolute top-8 right-2 md:top-20 md:right-0 z-20 bg-white rounded-xl md:rounded-2xl p-2 md:p-4 shadow-lg border border-slate-100 scale-90 md:scale-100"
-              custom={1}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <i className="fab fa-python text-3xl md:text-5xl text-yellow-500"></i>
-            </motion.div>
-
-            {/* Badge 3: ROS2 */}
-            <motion.div
-              className="absolute top-1/2 -right-2 md:-right-12 z-20 bg-slate-900 text-white px-3 py-2 md:px-5 md:py-3 rounded-lg md:rounded-xl shadow-xl border border-slate-700 flex items-center gap-2 scale-90 md:scale-100 origin-right"
-              custom={2}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <i className="fas fa-robot text-sky-400 text-base md:text-xl"></i>
-              <span className="font-bold text-xs md:text-base">ROS 2</span>
-            </motion.div>
-
-            {/* Badge 4: Github */}
-            <motion.div
-              className="absolute bottom-16 right-0 md:bottom-32 md:right-10 z-0 md:z-20 bg-white p-2 md:p-4 rounded-xl md:rounded-2xl shadow-lg scale-90 md:scale-100"
-              custom={1.5}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <i className="fab fa-github text-3xl md:text-5xl text-slate-800"></i>
-            </motion.div>
-
-            {/* Badge 5: C++ (New) */}
-            <motion.div
-              className="absolute top-20 left-0 md:top-32 md:-left-4 z-10 bg-[#00599C] p-2 md:p-3 rounded-lg md:rounded-xl shadow-lg border border-blue-400 scale-90 md:scale-100"
-              custom={2.5}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <span className="font-bold text-white text-base md:text-xl">C++</span>
-            </motion.div>
-
-            {/* Badge 6: Linux (New) */}
-            <motion.div
-              className="absolute bottom-28 -right-2 md:bottom-48 md:-right-8 z-10 bg-slate-800 p-2 md:p-3 rounded-full shadow-lg border border-slate-600 scale-90 md:scale-100"
-              custom={3}
-              variants={floatingBadgeVariants}
-              animate="animate"
-            >
-              <i className="fab fa-linux text-2xl md:text-4xl text-white"></i>
-            </motion.div>
-
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
