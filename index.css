@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Space+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-script {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  .font-mono-space {
+    font-family: 'Space Mono', monospace;
+  }
+  .apple-gradient-text {
+    background-image: linear-gradient(
+      to right,
+      #ffffff 0%, 
+      #ffffff 30%, 
+      #A881E6 45%, 
+      #7EA5D8 65%, 
+      #6892A0 85%, 
+      #7DB171 100%
+    );
+    background-size: 250% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    will-change: background-position;
+  }
+}
+
+:root {
+  --apple-bg: #000000;
+  --apple-bg-secondary: #0a0a0a;
+  --apple-fg: #f5f5f7;
+  --apple-gray: #86868b;
+  --apple-gray-light: #d2d2d7;
+  --apple-accent: #2997ff;
+}
+
+body {
+  background-color: var(--apple-bg);
+  color: var(--apple-fg);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Text Selection */
+::selection {
+  background: var(--apple-fg);
+  color: var(--apple-bg);
+}
+
+/* Hide scrollbar for a clean Apple look */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Utility to ensure Three.js canvas covers background */
+.webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Utility to center content */
+.apple-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* ─── Coverflow Carousel ─── */
+.coverflow-stage {
+  perspective: 1200px;
+}
+.coverflow-track {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

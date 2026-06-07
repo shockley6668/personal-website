@@ -1,120 +1,103 @@
-
-import React, { useContext } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useContext } from 'react';
+import gsap from 'gsap';
 import { LanguageContext } from '../contexts/LanguageContext';
-import { PROFILE_DATA, getText } from '../constants';
-import CyberpunkParkourAnimation from './CyberpunkParkourAnimation';
 
 const Hero: React.FC = () => {
   const { language } = useContext(LanguageContext);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const tagsRef = useRef<HTMLDivElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
 
-  const heroContentVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      }
-    },
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
+      // Animate all text elements fading in and floating up
+      tl.fromTo('.hero-text-anim',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.2, stagger: 0.1, ease: 'power3.out', delay: 0.5 }
+      );
 
-  const floatingBadgeVariants = {
-    animate: (i: number) => ({
-      y: [0, -15, 0],
-      transition: {
-        duration: 3 + i,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: i * 0.5,
-      },
-    }),
-  };
+      // ScrollTrigger for the text color change
+      gsap.to('.apple-gradient-text', {
+        backgroundPosition: '100% 50%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=800', // Pin for 800px of scrolling while coloring
+          scrub: 0.5,
+          pin: true,
+          pinSpacing: true,
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [language]);
+
+  const [timeStr, setTimeStr] = React.useState('');
+  
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(now.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute:'2-digit' }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-20 md:pt-0"
-      aria-labelledby="hero-title"
-    >
-      <CyberpunkParkourAnimation />
+    <section ref={containerRef} className="relative w-full h-screen pointer-events-none z-10 px-8 py-10 md:px-16 md:py-16 text-white overflow-hidden">
+      
+      {/* Top Left: Name & Status */}
+      <div className="hero-text-anim absolute top-24 left-8 md:top-20 md:left-16 flex flex-col font-mono-space text-xs md:text-sm text-gray-300">
+        <span className="mb-2 uppercase font-bold tracking-widest text-white">Shukun Huang</span>
+        <span>{language === 'en' ? 'Available for work:' : '求职状态:'}</span>
+        <a href="mailto:2933151428@qq.com" className="underline underline-offset-4 hover:text-white pointer-events-auto">2933151428@qq.com</a>
+      </div>
 
-      {/* Dark Overlay for better text contrast if needed, though Parkour is already darkish */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/20 to-slate-900/80 pointer-events-none" />
+      {/* Top Right: Skills / Links */}
+      <div className="hero-text-anim absolute top-24 right-8 md:top-20 md:right-16 flex flex-col font-mono-space text-xs md:text-sm text-gray-300 text-right">
+        <span className="mb-2 uppercase font-bold tracking-widest text-white">Core Focus</span>
+        <span>Embedded Systems</span>
+        <span>Sim2Real RL</span>
+        <span>Autonomous Robots</span>
+      </div>
 
-      <div className="container mx-auto z-10 relative">
-        <div className="flex flex-col items-center justify-center text-center">
-          {/* Main Text Content */}
-          <motion.div
-            className="w-full max-w-5xl relative z-20 px-4"
-            variants={heroContentVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h2
-              className="text-xl md:text-2xl font-bold text-sky-400 mb-2 tracking-wide uppercase"
-              variants={fadeInUp}
-            >
-              {getText({ zh: '你好，我是', en: "Hi I'm" }, language)}
-            </motion.h2>
+      {/* Main Title: Center Left */}
+      <div className="hero-text-anim absolute top-1/2 left-8 md:left-16 -translate-y-1/2 flex flex-col pointer-events-auto w-full">
+        <span className="font-script text-[22vw] md:text-[12vw] leading-[0.8] apple-gradient-text">Robotics</span>
+        <span className="font-bold text-[18vw] md:text-[9.5vw] leading-[0.85] tracking-tighter uppercase apple-gradient-text mt-2">Engineer.</span>
+      </div>
 
-            <motion.h1
-              id="hero-title"
-              className="text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none"
-              variants={fadeInUp}
-            >
-              <span className="relative inline-block">
-                <span className="relative z-10">{getText(PROFILE_DATA.name, language)}</span>
-                <span className="absolute -bottom-2 md:-bottom-4 left-0 w-full h-4 md:h-6 bg-sky-600/50 -skew-x-12 -z-0 transform rotate-[-1deg]"></span>
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="text-base md:text-xl text-slate-300 font-medium mb-10 max-w-2xl mx-auto leading-relaxed"
-              variants={fadeInUp}
-            >
-              {getText(PROFILE_DATA.title, language)}
-            </motion.p>
-
-            <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center gap-5"
-              variants={fadeInUp}
-            >
-              {PROFILE_DATA.downloadResume && (
-                <a
-                  href="./resume.pdf"
-                  download="Shukun_Huang_Resume.pdf"
-                  className="bg-sky-500 hover:bg-sky-400 text-white font-bold py-4 px-8 rounded-full text-lg shadow-[0_4px_14px_0_rgba(14,165,233,0.39)] hover:shadow-[0_6px_20px_rgba(14,165,233,0.23)] hover:-translate-y-1 transition-all w-full sm:w-auto flex items-center justify-center gap-2 group"
-                >
-                  {getText(PROFILE_DATA.downloadResume, language)}
-                  <i className="fas fa-download group-hover:animate-bounce"></i>
-                </a>
-              )}
-              <a
-                href="#projects"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold py-4 px-8 rounded-full text-lg hover:-translate-y-1 transition-all w-full sm:w-auto flex items-center justify-center gap-2"
-              >
-                {getText({ zh: '查看项目', en: 'View Projects' }, language)}
-                <i className="fas fa-arrow-right"></i>
-              </a>
-            </motion.div>
-          </motion.div>
-
-          {/* Background & Floating Badges distributed around center */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            {/* Background Blob/Shape centered */}
-            <div className="absolute w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-gradient-to-tr from-sky-600/10 via-indigo-600/10 to-purple-600/10 rounded-full blur-[120px] z-0 animate-pulse"></div>
-
-            <div className="relative w-full h-full">
-            </div>
-          </div>
+      {/* Bottom Left: Time & Links */}
+      <div className="hero-text-anim absolute bottom-12 left-8 md:bottom-16 md:left-16 flex flex-col font-mono-space text-xs md:text-sm text-gray-300">
+        <span>Local time</span>
+        <span className="uppercase text-white mb-4">{timeStr}</span>
+        <div className="flex gap-4 pointer-events-auto uppercase text-xs">
+          <a href="https://github.com/shockley6668" target="_blank" rel="noreferrer" className="hover:text-white">Github</a>
+          <a href="https://www.linkedin.com/in/shukun-huang-04378231a/" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
         </div>
       </div>
+
+      {/* Bottom Right: Intro text */}
+      <div className="hero-text-anim absolute bottom-12 right-8 md:bottom-16 md:right-16 max-w-[280px] md:max-w-[320px] font-mono-space text-xs md:text-sm text-gray-300 text-left pointer-events-auto">
+        <p className="mb-4">
+          {language === 'en' ? 
+            "Hi! I'm Shukun Huang, a passionate robotics engineer." :
+            "你好！我是黄树坤，一名对机器人充满热忱的工程师。"}
+        </p>
+        <p>
+          {language === 'en' ?
+            "I focus on bringing complex robotic concepts from simulation into reality." :
+            "我专注于将复杂的机器人算法从仿真环境落地到真实世界。"}
+        </p>
+      </div>
+
     </section>
   );
 };

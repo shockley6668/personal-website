@@ -1,103 +1,135 @@
-
-import React, { useContext } from 'react';
-import { motion } from 'framer-motion';
-import { LanguageContext } from '../contexts/LanguageContext';
+import React, { useContext, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { INTERNSHIPS_DATA, getText } from '../constants';
-import type { InternshipEntry } from '../types';
-import ClickRippleEffect from './effects/ClickRippleEffect';
-// HoverSectionWrapper import removed
-
-const InternshipCard: React.FC<{ entry: InternshipEntry, index: number }> = ({ entry, index }) => {
-  const { language } = useContext(LanguageContext);
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut", delay: index * 0.1 } }
-  };
-
-  const rippleColor = "rgba(0, 120, 255, 0.08)";
-  const rippleDuration = 0.7;
-
-  return (
-    <ClickRippleEffect rippleColor={rippleColor} duration={rippleDuration}>
-      <motion.div
-        className="bg-white p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-slate-100"
-        variants={cardVariants}
-      >
-        <div className="flex flex-col sm:flex-row justify-between items-start mb-4 gap-2">
-          <div className="flex-grow min-w-0">
-            <h3 className="text-xl md:text-2xl font-bold text-sky-800 leading-tight">{getText(entry.role, language)}</h3>
-            <div className="flex flex-wrap items-center gap-x-2 mt-1">
-              <p className="text-base font-medium text-slate-700">
-                {getText(entry.company, language)}
-              </p>
-              {entry.department && (
-                <span className="text-sm text-slate-400 font-normal">
-                  / {getText(entry.department, language)}
-                </span>
-              )}
-            </div>
-          </div>
-          <div className="bg-sky-50 px-3 py-1 rounded-full text-xs font-bold text-sky-600 whitespace-nowrap">
-            <i className="far fa-calendar-alt mr-1.5 opacity-70"></i>{getText(entry.period, language)}
-          </div>
-        </div>
-        <div className="pt-3 border-t border-slate-50">
-          <h4 className="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-2 flex items-center gap-2">
-            <i className="fas fa-tasks text-[10px]"></i>
-            {getText({ zh: '项目详情与职责', en: 'Responsibilities & Projects' }, language)}
-          </h4>
-          <ul className="text-sm text-slate-600 space-y-2.5">
-            {entry.responsibilities.map((resp, idx) => (
-              <li key={idx} className="flex items-start gap-2.5">
-                <i className="fas fa-arrow-right text-sky-300 text-[10px] mt-1.5 flex-shrink-0"></i>
-                <span className="leading-relaxed">{getText(resp, language)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </motion.div>
-    </ClickRippleEffect>
-  );
-};
+import { LanguageContext } from '../contexts/LanguageContext';
 
 const Internships: React.FC = () => {
   const { language } = useContext(LanguageContext);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timelineLineRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.2
-      }
-    }
-  };
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate the main vertical line
+      gsap.fromTo(timelineLineRef.current,
+        { scaleY: 0, transformOrigin: "top" },
+        { 
+          scaleY: 1, 
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 60%",
+            end: "bottom 80%",
+            scrub: true
+          }
+        }
+      );
+
+      // Animate each item
+      itemRefs.current.forEach((item, index) => {
+        if (!item) return;
+        
+        const dot = item.querySelector('.timeline-dot');
+        const content = item.querySelector('.timeline-content');
+        const period = item.querySelector('.timeline-period');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        });
+
+        if (dot) {
+          tl.fromTo(dot, 
+            { scale: 0, opacity: 0 }, 
+            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+          );
+        }
+
+        if (period) {
+          tl.fromTo(period,
+            { x: index % 2 === 0 ? 50 : -50, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+            "-=0.3"
+          );
+        }
+
+        if (content) {
+          tl.fromTo(content,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+            "-=0.4"
+          );
+        }
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [language]);
 
   return (
-    <section id="internships" className="py-16 md:py-24 bg-white"> {/* Removed rounded-lg if not intrinsic */}
-      <div className="container mx-auto px-6">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-800"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="border-b-4 border-sky-500 pb-2">{getText({ zh: '实习经历', en: 'Internships' }, language)}</span>
-        </motion.h2>
-        <motion.div
-          className="space-y-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {INTERNSHIPS_DATA.map((entry, index) => (
-            <InternshipCard key={entry.id} entry={entry} index={index} />
-          ))}
-        </motion.div>
+    <section id="experience" ref={containerRef} className="w-full relative py-32 z-20 bg-black">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-24 md:text-center">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight apple-gradient-text apple-gradient-section-title mb-4">
+            {language === 'en' ? 'Experience' : '工作经历'}
+          </h2>
+          <div className="w-16 h-1 bg-apple-blue md:mx-auto rounded-full"></div>
+        </div>
+
+        <div className="relative wrap overflow-hidden p-4 md:p-10 h-full">
+          {/* Vertical timeline line */}
+          <div 
+            ref={timelineLineRef}
+            className="absolute border-opacity-20 border-white h-full border" 
+            style={{ left: '50%' }}
+          ></div>
+
+          {INTERNSHIPS_DATA.map((internship, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div 
+                key={internship.id}
+                ref={el => itemRefs.current[index] = el}
+                className={`mb-16 flex justify-between items-center w-full ${isEven ? 'flex-row-reverse left-timeline' : 'right-timeline'}`}
+              >
+                <div className="order-1 w-5/12 hidden md:block">
+                  <div className={`text-apple-blue font-bold text-xl md:text-3xl ${isEven ? 'text-left' : 'text-right'} timeline-period`}>
+                    {getText(internship.period, language)}
+                  </div>
+                </div>
+                
+                <div className="z-20 flex items-center order-1 bg-apple-bg shadow-xl w-8 h-8 rounded-full border-4 border-apple-blue timeline-dot">
+                </div>
+                
+                <div className={`order-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl w-full md:w-5/12 px-6 py-8 timeline-content ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
+                  <div className="md:hidden text-apple-blue font-bold text-lg mb-2">
+                    {getText(internship.period, language)}
+                  </div>
+                  <h3 className="font-bold text-white text-2xl md:text-3xl tracking-tight mb-2">
+                    {getText(internship.company, language)}
+                  </h3>
+                  <h4 className="text-apple-gray-light text-lg mb-6 font-medium">
+                    {getText(internship.role, language)}
+                  </h4>
+                  
+                  <ul className="space-y-4">
+                    {internship.responsibilities.map((resp, i) => (
+                      <li key={i} className="text-apple-gray text-base leading-relaxed flex items-start">
+                        <span className="mr-3 text-apple-gray-light mt-1.5">•</span>
+                        <span>{getText(resp, language)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
