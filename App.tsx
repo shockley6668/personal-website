@@ -69,7 +69,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden text-apple-fg selection:bg-apple-fg selection:text-apple-bg">
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden text-apple-fg selection:bg-apple-fg selection:text-apple-bg">
       <ThreeBackground />
       
       <div className="z-10 relative flex flex-col flex-grow w-full">

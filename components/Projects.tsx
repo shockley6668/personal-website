@@ -26,13 +26,22 @@ const CoverflowCarousel: React.FC<{ project: Project; language: string }> = ({ p
   }, [paused, advance, images.length]);
 
   // Card layout constants
-  const CARD_W = 680;
-  const CARD_H = 480;
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 768;
+  const CARD_W = isMobile ? windowWidth * 0.85 : 680;
+  const CARD_H = isMobile ? CARD_W * (480 / 680) : 480;
   const SIDE_SCALE = 0.75;
-  const SIDE_OFFSET = 420; // px shift for adjacent cards
+  const SIDE_OFFSET = isMobile ? windowWidth * 0.5 : 420; // px shift for adjacent cards
   const SIDE_ROT = 45;     // deg rotateY for side cards
   const FAR_SCALE = 0.5;
-  const FAR_OFFSET = 640;
+  const FAR_OFFSET = isMobile ? windowWidth * 0.7 : 640;
   const FAR_ROT = 60;
 
   function getStyle(idx: number) {

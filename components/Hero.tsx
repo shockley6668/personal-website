@@ -70,8 +70,8 @@ const Hero: React.FC = () => {
 
       {/* Main Title: Center Left */}
       <div className="hero-text-anim absolute top-1/2 left-8 md:left-16 -translate-y-1/2 flex flex-col pointer-events-auto w-full">
-        <span className="font-script text-[22vw] md:text-[12vw] leading-[0.8] apple-gradient-text">Robotics</span>
-        <span className="font-bold text-[18vw] md:text-[9.5vw] leading-[0.85] tracking-tighter uppercase apple-gradient-text mt-2">Engineer.</span>
+        <span className="font-script text-[18vw] md:text-[12vw] leading-[0.8] apple-gradient-text">Robotics</span>
+        <span className="font-bold text-[14vw] md:text-[9.5vw] leading-[0.85] tracking-tighter uppercase apple-gradient-text mt-2">Engineer.</span>
       </div>
 
       {/* Bottom Left: Time & Links */}
