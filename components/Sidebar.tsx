@@ -4,12 +4,8 @@ import { useTheme } from '../contexts/ThemeContext';
 import { PROFILE_DATA, SOCIAL_LINKS_DATA, NAV_LINKS_DATA, getText } from '../constants';
 
 const Sidebar: React.FC = () => {
-  const { language, setLanguage } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
   const { isDark, toggleTheme } = useTheme();
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'zh' : 'en');
-  };
 
   const emailLink = SOCIAL_LINKS_DATA.find(l => l.name === 'Email');
   const githubLink = SOCIAL_LINKS_DATA.find(l => l.name === 'GitHub');
@@ -101,10 +97,7 @@ const Sidebar: React.FC = () => {
 
       {/* Controls */}
       <div className="sidebar-controls">
-        <button className="lang-btn" onClick={toggleLanguage} aria-label="Toggle language">
-          {language === 'en' ? '中文' : 'English'}
-        </button>
-        <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle dark mode">
+        <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle dark mode" style={{ width: '100%' }}>
           {isDark ? '☀ Light' : '● Dark'}
         </button>
       </div>
