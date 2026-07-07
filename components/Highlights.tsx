@@ -25,6 +25,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   VISIT: 'var(--cat-community)',
   HACKATHON: 'var(--cat-opensource)',
   PROJECT: 'var(--cat-maker)',
+  'SUMMER CAMP': 'var(--cat-maker)',
 };
 
 const DEFAULT_HIGHLIGHTS: HighlightItem[] = [
@@ -53,7 +54,7 @@ const DEFAULT_HIGHLIGHTS: HighlightItem[] = [
   },
   {
     id: 'hkust-visit',
-    category: 'VISIT',
+    category: 'SUMMER CAMP',
     title: 'HKUST InnoBay Bootcamp',
     description: 'HKUST InnoBay Venture Building Bootcamp — A highly selective hardtech innovation program initiated by Prof. Zexiang Li (mentor behind DJI & XbotPark). Applied advanced design thinking methodologies to engineer "STRIKE CAM", a novel smart hardware solution tackling critical industry pain points. Successfully pitched the functional prototype to prominent venture capitalists, executive panels, and academic advisors.',
     date: 'Jul 2025',
@@ -165,10 +166,10 @@ const DEFAULT_HIGHLIGHTS: HighlightItem[] = [
 
 function loadHighlights(): HighlightItem[] {
   try {
-    const hasInitializedNewDefaults = localStorage.getItem('highlights_v17_initialized');
+    const hasInitializedNewDefaults = localStorage.getItem('highlights_v18_initialized');
     if (!hasInitializedNewDefaults) {
       localStorage.setItem('highlights_data', JSON.stringify(DEFAULT_HIGHLIGHTS));
-      localStorage.setItem('highlights_v17_initialized', 'true');
+      localStorage.setItem('highlights_v18_initialized', 'true');
       return DEFAULT_HIGHLIGHTS;
     }
 
