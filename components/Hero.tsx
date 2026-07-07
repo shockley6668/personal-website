@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
       <div className="hero-text-anim absolute top-24 left-8 md:top-20 md:left-16 flex flex-col font-mono-space text-xs md:text-sm text-gray-300">
         <span className="mb-2 uppercase font-bold tracking-widest text-white">Shukun Huang</span>
         <span>{language === 'en' ? 'Available for work:' : '求职状态:'}</span>
-        <a href="mailto:2933151428@qq.com" className="underline underline-offset-4 hover:text-white pointer-events-auto">2933151428@qq.com</a>
+        <a href="mailto:shukun.huang.robotics@gmail.com" className="underline underline-offset-4 hover:text-white pointer-events-auto">shukun.huang.robotics@gmail.com</a>
       </div>
 
       {/* Top Right: Skills / Links */}

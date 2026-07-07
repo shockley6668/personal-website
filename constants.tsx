@@ -28,9 +28,9 @@ export const NAV_LINKS_DATA: NavLink[] = [
   { name: { zh: '教育背景', en: 'Education' }, href: '#education' },
   { name: { zh: '实习经历', en: 'Internships' }, href: '#internships' },
   { name: { zh: '项目经验', en: 'Projects' }, href: '#projects' },
-  { name: { zh: '研究经历', en: 'Research' }, href: '#research' },
   { name: { zh: '荣誉奖项', en: 'Awards' }, href: '#awards' },
   { name: { zh: '技能栈', en: 'Skills' }, href: '#skills' },
+  { name: { zh: '学术成果', en: 'Publications' }, href: '#research' },
   { name: { zh: '联系我', en: 'Contact' }, href: '#contact' },
 ];
 
@@ -39,16 +39,16 @@ export const ABOUT_DATA: AboutContent = {
   imageUrl: './about/profile_photo.jpg',
   paragraphs: [
     {
-      zh: '从高中期间参与VEX、RoboMaster夏令营等机器人比赛起，就开始对机器人技术充满热情。在大学期间，通过参与各类机器人竞赛、电子设计比赛以及项目，深化了对机器人控制、嵌入式开发及深度学习等核心技术的理解与实践。',
-      en: 'My passion for robotics was ignited in high school through participation in competitions like VEX and RoboMaster Summer Camp. During university, I deepened my practical understanding and theoretical knowledge of core technologies such as robot control, embedded development, and deep learning through various hands-on projects and competitions.'
+      zh: '机器人应用工程师，现就职于深圳地瓜机器人（D-Robotics），主攻 RDK 边缘计算平台上的具身智能系统研发与落地。即将入读加拿大滑铁卢大学 ECE 系硕士（2026 年秋），本科就读于深圳技术大学计算机科学与技术专业，以专业前 15% 成绩毕业。',
+      en: 'Robotics engineer at D-Robotics, building embodied intelligence systems on the RDK edge computing platform. Incoming M.Eng. at the University of Waterloo (ECE, Fall 2026). B.Eng. in Computer Science from Shenzhen Technology University, graduating top 15% of class.'
     },
     {
-      zh: '曾担任RoboMaster机器人战队电控组组长，负责机器人整体设计与开发，锻炼了优秀的团队协作与问题解决能力。',
-      en: 'As the leader of the RoboMaster team\'s electrical control group, I was responsible for the overall robot design and development, which greatly honed my teamwork and problem-solving skills.'
+      zh: '从 RoboMaster 战队电控组长，到日立中国研究院、香港科技大学（广州），再到地瓜机器人——技术版图横跨裸机嵌入式（STM32/FreeRTOS）、3D LiDAR SLAM、Sim2Real 强化学习，以及端侧 VLA 大模型部署。曾从零设计并落地 10-DOF 双足机器人，斩获 ICRA Sim2Real 挑战赛一等奖、全国电子设计大赛广东省一等奖。',
+      en: 'My path runs through RoboMaster team leadership, R&D at Hitachi China Research Lab, a teaching assistantship at HKUST(GZ), and applied AI at D-Robotics — across bare-metal firmware (STM32/FreeRTOS), 3D LiDAR SLAM, Sim2Real RL, and on-device VLA model deployment. Built a 10-DOF bipedal robot from the ground up. First Prize at ICRA Sim2Real Challenge; First Prize at the National Electronics Design Contest (Guangdong).'
     },
     {
-      zh: '具备良好的沟通能力和团队合作精神，能快速适应新环境与新技术。拥有较强的学习与自主学习能力，对机器人和嵌入式领域充满追求。',
-      en: 'I thrive in dynamic environments, bringing strong communication and teamwork skills, and a knack for quickly adapting to new technologies. My deep motivation in robotics fuels a constant drive for learning and innovation.'
+      zh: '研究方向聚焦于具身智能——从机器人硬件设计到感知、决策与控制软件的全栈打通，让机器人真正理解并作用于物理世界。相信 Physical AI 是下一个十年最值得投入的方向。',
+      en: 'My focus is embodied intelligence — bridging robot hardware and the full software stack of perception, decision-making, and control, so that machines can genuinely understand and act in the physical world. I believe Physical AI is the most important frontier of the next decade.'
     },
   ],
   galleryTitle: { zh: '机器人竞赛精彩瞬间', en: 'Robotics Competition Highlights' },
@@ -84,7 +84,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     degree: { zh: '本科', en: 'Bachelor\'s Degree' },
     major: { zh: '计算机科学与技术', en: 'Computer Science and Technology' },
     period: { zh: '2022.09 - 至今', en: 'Sep 2022 - Present' },
-    gpa: { zh: 'GPA: 3.58/4.50 (前20%)', en: 'GPA: 3.58/4.50 (Top 20%)' },
+    gpa: { zh: 'GPA: 3.66/4.50 (专业前 15%, 28/200)', en: 'GPA: 3.66/4.50 (Ranked 28/200, Top 15%)' },
     courses: [
       { zh: '计算机组成原理', en: 'Computer Organization' },
       { zh: '数据结构与算法', en: 'Data Structures and Algorithms' },
@@ -110,6 +110,22 @@ export const INTERNSHIPS_DATA: InternshipEntry[] = [
       {
         zh: '开发各类机器人应用 Demo，涵盖感知、控制、具身智能等方向，助力推动 RDK 开发者生态建设。',
         en: 'Developed various robot application demos covering perception, control, and embodied intelligence, contributing to the growth of the RDK developer ecosystem.'
+      },
+    ],
+  },
+  {
+    id: 'hkustgz',
+    role: { zh: '工程创新教学助理（副校长·教学办公室）', en: 'Engineering Innovation Teaching Assistant · Office of VP for Academic Affairs' },
+    company: { zh: '香港科技大学（广州）', en: 'The Hong Kong University of Science and Technology (Guangzhou)' },
+    period: { zh: '2026.01 - 2026.03', en: 'Jan 2026 - Mar 2026' },
+    responsibilities: [
+      {
+        zh: '受香港科技大学（广州）副校长（教学）办公室委任，担任卡丁车创造营工程实践课程核心教学助理，将机械结构、电气系统与嵌入式控制整合为系统化项目制课程，各组均在规定时间内完成整车调试并通过性能测试。',
+        en: 'Appointed by the Office of the Vice-President for Academic Affairs at HKUST(GZ) as a core teaching assistant for the Go-Kart Creation Camp, integrating mechanical, electrical, and embedded control systems into a structured project-based curriculum; achieved 100% team completion within the project timeline.'
+      },
+      {
+        zh: '将复杂机电一体化概念转化为面向不同背景学员的模块化教学内容，指导跨学科团队在高强度周期内完成从零到一的工程设计闭环，获学员与主办方一致好评。',
+        en: 'Translated complex mechatronics concepts into accessible, modular instructional content; mentored cross-disciplinary teams through the full engineering design cycle under tight deadlines, receiving commendation from both participants and program organizers.'
       },
     ],
   },
@@ -191,7 +207,11 @@ export const PROJECTS_DATA: Project[] = [
     imageUrl: './projects/bdx/bdx_walk.gif',
     galleryImages: [
       './projects/bdx/bdx_walk.gif',
+      './projects/bdx/bdx_robot.jpeg',
+      './projects/bdx/bdx_mech.jpeg',
       './projects/bdx/bdx_arch.jpeg',
+      './projects/bdx/bdx_train1.jpeg',
+      './projects/bdx/bdx_train2.jpeg',
     ],
     liveUrl: 'https://forum-en.d-robotics.cc/t/zero-to-one-the-guide-to-building-a-bipedal-robot-with-the-rdk-x5/484',
   },
@@ -382,7 +402,7 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
 export const SOCIAL_LINKS_DATA: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/shockley6668', icon: <i className="fab fa-github"></i>, label: { zh: '我的 GitHub', en: 'My GitHub' } },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shukun-huang-04378231a/', icon: <i className="fab fa-linkedin"></i>, label: { zh: '我的领英', en: 'My LinkedIn' } },
-  { name: 'Email', url: 'mailto:2933151428@qq.com', icon: <i className="fas fa-envelope"></i>, label: { zh: '发送邮件给我', en: 'Send me an Email' } },
+  { name: 'Email', url: 'mailto:shukun.huang.robotics@gmail.com', icon: <i className="fas fa-envelope"></i>, label: { zh: '发送邮件给我', en: 'Send me an Email' } },
   { name: 'Phone', url: 'tel:+8615024220891', icon: <i className="fas fa-phone"></i>, label: { zh: '拨打电话', en: 'Call me' } },
 ];
 
