@@ -32,7 +32,7 @@ const DEFAULT_HIGHLIGHTS: HighlightItem[] = [
     id: 'icra-sim2real',
     category: 'RESEARCH',
     title: 'ICRA Sim2Real Challenge (Yokohama)',
-    description: 'First Prize at Agilex Sim2Real + Second Prize at RoboMaster Sim2Real challenges at ICRA 2024 in Yokohama, Japan. Developed and validated robust Sim2Real reinforcement learning policies for quadrupedal and wheeled locomotion.',
+    description: 'First Prize at Agilex Sim2Real + Second Prize at RoboMaster Sim2Real challenges at ICRA 2024 in Yokohama, Japan. Developed and validated robust Sim2Real reinforcement learning policies for wheeled mobile robots.',
     date: 'May 2024',
     imageUrls: [
       './pics/icra_team.jpg',
@@ -165,10 +165,10 @@ const DEFAULT_HIGHLIGHTS: HighlightItem[] = [
 
 function loadHighlights(): HighlightItem[] {
   try {
-    const hasInitializedNewDefaults = localStorage.getItem('highlights_v16_initialized');
+    const hasInitializedNewDefaults = localStorage.getItem('highlights_v17_initialized');
     if (!hasInitializedNewDefaults) {
       localStorage.setItem('highlights_data', JSON.stringify(DEFAULT_HIGHLIGHTS));
-      localStorage.setItem('highlights_v16_initialized', 'true');
+      localStorage.setItem('highlights_v17_initialized', 'true');
       return DEFAULT_HIGHLIGHTS;
     }
 
