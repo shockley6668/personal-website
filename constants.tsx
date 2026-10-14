@@ -39,8 +39,8 @@ export const ABOUT_DATA: AboutContent = {
   imageUrl: './about/profile_photo.jpg',
   paragraphs: [
     {
-      zh: '机器人应用工程师，现就职于深圳地瓜机器人（D-Robotics），主攻 RDK 边缘计算平台上的具身智能系统研发与落地。即将入读加拿大滑铁卢大学 ECE 系硕士（2026 年秋），本科就读于深圳技术大学计算机科学与技术专业，以专业前 15% 成绩毕业。',
-      en: 'Robotics engineer at D-Robotics, building embodied intelligence systems on the RDK edge computing platform. Incoming M.Eng. at the University of Waterloo (ECE, Fall 2026). B.Eng. in Computer Science from Shenzhen Technology University, graduating top 15% of class.'
+      zh: '机器人应用工程师，现就职于深圳地瓜机器人（D-Robotics），主攻 RDK 边缘计算平台上的具身智能系统研发与落地。滑铁卢大学 ECE 硕士在读（2026.09 - 2028.01），本科就读于深圳技术大学计算机科学与技术专业，以专业前 15% 成绩毕业。',
+      en: 'Robotics engineer at D-Robotics, building embodied intelligence systems on the RDK edge computing platform. M.Eng. student in ECE at the University of Waterloo (Sep 2026 - Jan 2028). B.Eng. in Computer Science from Shenzhen Technology University, graduating top 15% of class.'
     },
     {
       zh: '从 RoboMaster 战队电控组长，到日立中国研究院、香港科技大学（广州），再到地瓜机器人——技术版图横跨裸机嵌入式（STM32/FreeRTOS）、3D LiDAR SLAM、Sim2Real 强化学习，以及端侧 VLA 大模型部署。曾从零设计并落地 10-DOF 双足机器人，斩获 ICRA Sim2Real 挑战赛一等奖、全国电子设计大赛广东省一等奖。',
@@ -74,7 +74,7 @@ export const EDUCATION_DATA: EducationEntry[] = [
     major: { zh: '电子与计算机工程 (ECE)', en: 'Electrical and Computer Engineering (ECE)' },
     period: { zh: '2026.09 - 2028.01', en: 'Sep 2026 - Jan 2028' },
     details: [
-      { zh: '状态：待入学 (2026年秋季入学)', en: 'Incoming Student (Fall 2026 Intake)' }
+      { zh: '状态：硕士在读', en: 'Current MEng student' }
     ],
     logoUrl: './education/waterloo_logo.png',
   },

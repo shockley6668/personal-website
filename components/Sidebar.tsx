@@ -33,13 +33,13 @@ const Sidebar: React.FC = () => {
         {language === 'en' ? (
           <>
             D-Robotics · Robotics App Eng.<br />
-            Incoming: U. Waterloo ECE (Sep 2026)<br />
+            MEng Student, ECE @ U. Waterloo<br />
             B.Eng. SZTU (Top 15%)
           </>
         ) : (
           <>
             地瓜机器人 · 机器人应用工程师<br />
-            即将就读：滑铁卢大学 ECE 硕士<br />
+            滑铁卢大学 ECE 硕士在读<br />
             深圳技术大学 本科（前15%）
           </>
         )}
