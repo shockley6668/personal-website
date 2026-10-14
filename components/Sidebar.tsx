@@ -32,13 +32,13 @@ const Sidebar: React.FC = () => {
       <div className="sidebar-affiliation">
         {language === 'en' ? (
           <>
-            D-Robotics · Robotics App Eng.<br />
+            Ex-D-Robotics · Robotics App Eng.<br />
             MEng Student, ECE @ U. Waterloo<br />
             B.Eng. SZTU (Top 15%)
           </>
         ) : (
           <>
-            地瓜机器人 · 机器人应用工程师<br />
+            前地瓜机器人 · 机器人应用工程师<br />
             滑铁卢大学 ECE 硕士在读<br />
             深圳技术大学 本科（前15%）
           </>
