@@ -85,7 +85,7 @@ const Sidebar: React.FC = () => {
         ))}
         <div className="sidebar-contact-item">
           <i className="fas fa-map-marker-alt" />
-          <span>{language === 'en' ? 'Shenzhen, China' : '中国深圳'}</span>
+          <span>{language === 'en' ? 'Waterloo, Canada' : '加拿大滑铁卢'}</span>
         </div>
       </div>
 
