@@ -17,16 +17,17 @@ const Contact: React.FC = () => {
         </p>
 
         <div className="flex flex-wrap justify-center gap-6">
-          {SOCIAL_LINKS_DATA.map((link, i) => (
+          {SOCIAL_LINKS_DATA.map((link) => (
             <a 
-              key={i}
+              key={link.url}
               href={link.url}
               target="_blank"
               rel="noreferrer"
+              aria-label={getText(link.label, language)}
               className="flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-md font-bold text-lg text-white"
             >
               {link.icon}
-              <span>{link.name}</span>
+              <span>{link.url.startsWith('tel:') ? getText(link.label, language) : link.name}</span>
             </a>
           ))}
         </div>

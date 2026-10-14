@@ -404,6 +404,7 @@ export const SOCIAL_LINKS_DATA: SocialLink[] = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shukun-huang/', icon: <i className="fab fa-linkedin"></i>, label: { zh: '我的领英', en: 'My LinkedIn' } },
   { name: 'Email', url: 'mailto:shukun.huang.robotics@gmail.com', icon: <i className="fas fa-envelope"></i>, label: { zh: '发送邮件给我', en: 'Send me an Email' } },
   { name: 'Phone', url: 'tel:+8615024220891', icon: <i className="fas fa-phone"></i>, label: { zh: '拨打电话', en: 'Call me' } },
+  { name: 'Phone (Canada)', url: 'tel:+15483905685', icon: <i className="fas fa-phone"></i>, label: { zh: '加拿大电话', en: 'Call me (Canada)' } },
 ];
 
 export const CONTACT_STRINGS: ContactContent = {
