@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
         <span className="uppercase text-white mb-4">{timeStr}</span>
         <div className="flex gap-4 pointer-events-auto uppercase text-xs">
           <a href="https://github.com/shockley6668" target="_blank" rel="noreferrer" className="hover:text-white">Github</a>
-          <a href="https://www.linkedin.com/in/shukun-huang-04378231a/" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/shukun-huang/" target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a>
         </div>
       </div>
 

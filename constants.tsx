@@ -401,7 +401,7 @@ export const SKILL_CATEGORIES_DATA: SkillCategory[] = [
 
 export const SOCIAL_LINKS_DATA: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/shockley6668', icon: <i className="fab fa-github"></i>, label: { zh: '我的 GitHub', en: 'My GitHub' } },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shukun-huang-04378231a/', icon: <i className="fab fa-linkedin"></i>, label: { zh: '我的领英', en: 'My LinkedIn' } },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shukun-huang/', icon: <i className="fab fa-linkedin"></i>, label: { zh: '我的领英', en: 'My LinkedIn' } },
   { name: 'Email', url: 'mailto:shukun.huang.robotics@gmail.com', icon: <i className="fas fa-envelope"></i>, label: { zh: '发送邮件给我', en: 'Send me an Email' } },
   { name: 'Phone', url: 'tel:+8615024220891', icon: <i className="fas fa-phone"></i>, label: { zh: '拨打电话', en: 'Call me' } },
 ];
