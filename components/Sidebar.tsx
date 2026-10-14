@@ -75,6 +75,14 @@ const Sidebar: React.FC = () => {
             <a href={linkedinLink.url} target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         )}
+        {SOCIAL_LINKS_DATA.filter((link) => link.url.startsWith('tel:')).map((phone) => (
+          <div className="sidebar-contact-item" key={phone.url}>
+            <i className="fas fa-phone" />
+            <a href={phone.url} aria-label={getText(phone.label, language)}>
+              {getText(phone.label, language)}
+            </a>
+          </div>
+        ))}
         <div className="sidebar-contact-item">
           <i className="fas fa-map-marker-alt" />
           <span>{language === 'en' ? 'Shenzhen, China' : '中国深圳'}</span>
