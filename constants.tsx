@@ -187,6 +187,28 @@ export const INTERNSHIPS_DATA: InternshipEntry[] = [
 
 export const PROJECTS_DATA: Project[] = [
   {
+    id: 'museGadget',
+    title: { zh: 'Muse 桌面智能小设备（基于 RDK X5）', en: 'Muse Gadget on RDK X5' },
+    period: { zh: '2026.10 - 至今', en: 'Oct 2026 - Present' },
+    description: { zh: '将 Muse Gadget SDK 部署到地瓜 RDK X5 上，打造带像素风 Muse 形象、支持语音对话的桌面 AI 伙伴，并为其设计定制外壳。', en: 'Brought the Muse Gadget SDK up on the D-Robotics RDK X5, turning it into a desktop AI companion with the Muse pixel avatar and voice chat, housed in a custom-designed enclosure.' },
+    responsibilities: [
+      { zh: '在 RDK X5（Ubuntu 22.04 ARM64）上完成 Muse Gadget SDK 的社区部署，基于 BlueZ / D-Bus 实现蓝牙 LE 配对与设备控制。', en: 'Completed a community deployment of the Muse Gadget SDK on RDK X5 (Ubuntu 22.04, ARM64), handling Bluetooth LE pairing and device control via BlueZ / D-Bus.' },
+      { zh: '基于 LVGL/SDL 开发 480 × 320 触摸屏原生前端，显示 Muse 像素形象与中日韩字幕，支持按住录音、松开发送的语音消息，并通过 Python 桥接聊天与音频，可选 Edge TTS 语音播报。', en: 'Built a native LVGL/SDL frontend for a 480 × 320 touchscreen with the Muse pixel avatar and CJK captions, hold-to-record voice notes, a Python chat/audio bridge, and optional Edge TTS playback.' },
+      { zh: '在 Fusion 360 中完成整机外壳设计：146 × 124 × 62 mm 外形、10° 后倾、2.4 mm 壁厚，由五个可 3D 打印零件组成。', en: 'Designed the full enclosure in Fusion 360: a 146 × 124 × 62 mm shell with a 10° rearward lean and 2.4 mm walls, split into five 3D-printable parts.' },
+      { zh: '一体化 1.8 mm 前面板遮挡 LCD 玻璃边框，仅露出有效显示区域；四颗后置 M3 螺丝配合前壳内嵌螺母，正面无外露螺丝。', en: 'Integrated a 1.8 mm front skin that masks the LCD glass border, plus four rear-driven M3 screws into captive front nuts for a clean, screwless front face.' },
+      { zh: '通过 11 个弹簧顶针与 RDK X5 GPIO 排针对接（最大 XY 偏差 0.182 mm），并为 USB / 网口插拔通道和音频走线做干涉与空间校验。', en: 'Aligned 11 pogo-pin contacts to the RDK X5 GPIO header (max XY offset 0.182 mm), and ran clearance checks for USB / Ethernet insertion paths and audio cable routing.' },
+      { zh: '经过 V01–V04 多轮迭代，所有打印件通过干涉检查与 STL 流形校验。', en: 'Iterated through V01–V04; all printed parts pass interference checks and STL manifold audits.' },
+    ],
+    tags: [{ zh: 'RDK X5', en: 'RDK X5' }, { zh: 'Muse SDK', en: 'Muse SDK' }, { zh: 'LVGL', en: 'LVGL' }, { zh: '蓝牙 LE', en: 'Bluetooth LE' }, { zh: 'Fusion 360', en: 'Fusion 360' }, { zh: '3D 打印', en: '3D Printing' }],
+    liveUrl: 'https://github.com/facebookincubator/muse-gadget-sdk/blob/main/linux/docs/rdk-x5.md',
+    imageUrl: './projects/muse/muse_perspective.png',
+    galleryImages: [
+      './projects/muse/muse_perspective.png',
+      './projects/muse/muse_exploded.png',
+      './projects/muse/muse_design_board.png',
+    ],
+  },
+  {
     id: 'bipedalRobot',
     title: { zh: 'NVIDIA BDX 双足机器人复现', en: 'NVIDIA BDX Bipedal Robot Replication' },
     period: { zh: '2025.12 - 至今', en: 'Dec 2025 - Present' },
