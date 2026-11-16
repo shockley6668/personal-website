@@ -315,6 +315,17 @@ export const PROJECTS_DATA: Project[] = [
 
 export const RESEARCH_DATA: ResearchEntry[] = [
   {
+    id: 'aperturevla',
+    title: { zh: 'ApertureVLA：快速的 0.2B 视觉-语言-动作策略', en: 'ApertureVLA: A Fast 0.2B Vision-Language-Action Policy' },
+    period: { zh: '2026', en: '2026' },
+    role: { zh: '研讨会论文', en: 'Workshop Paper' },
+    description: { zh: '一种仅 0.2B 参数的轻量快速视觉-语言-动作（VLA）策略。', en: 'A lightweight, fast Vision-Language-Action (VLA) policy with only 0.2B parameters.' },
+    publication: {
+      text: { zh: 'CoRL 2026 研讨会论文。发表于 OpenReview。', en: 'CoRL 2026 Workshop Paper. Available on OpenReview.' },
+      url: 'https://openreview.net/forum?id=ihyWOu4G1y'
+    }
+  },
+  {
     id: 'dexhandeval',
     title: { zh: '基于遥操作的灵巧手设计与性能评估', en: 'Designing of a Dexterous Hand and Performance Evaluation Based on Teleoperation' },
     period: { zh: '2024.06 - 2024.12', en: 'Jun 2024 - Dec 2024' },
